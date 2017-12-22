@@ -22,4 +22,6 @@ public @interface ElasticDataflowJob {
     public abstract String shardingItemParameters() default "";
 
     public abstract String dataSource() default "";
+
+    public abstract boolean disabled() default false;
 }
