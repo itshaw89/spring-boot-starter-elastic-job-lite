@@ -1,3 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.itshaw.elasticjob.lite.autoconfigure.RegistryCenterConfiguration,\
 cn.itshaw.elasticjob.lite.autoconfigure.ElasticJobAutoConfiguration

@@ -1,7 +1,11 @@
 ###regsiter center config
-regCenter:
-  serverList: localhost:6181
-  namespace: elastic-job-lite-springboot
+elaticjob:
+  zookeeper:
+    server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+    namespace: elastic-job-lite-demo
+    baseSleepTimeMilliseconds:
+    maxSleepTimeMilliseconds:
+    maxRetries:
 
 ###job storage config
 spring:

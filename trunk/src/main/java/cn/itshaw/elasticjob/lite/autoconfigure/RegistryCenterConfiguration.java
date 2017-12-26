@@ -15,7 +15,7 @@
  * </p>
  */
 
-package cn.itshaw.elasticjob.lite.annotation;
+package cn.itshaw.elasticjob.lite.autoconfigure;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
@@ -25,13 +25,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnExpression("'${regCenter.serverList}'.length() > 0")
-public class RegistryCenterConfig {
+@ConditionalOnExpression("'${elaticjob.zookeeper.server-lists}'.length() > 0")
+public class RegistryCenterConfiguration {
 
     @Bean(initMethod = "init")
-    public ZookeeperRegistryCenter regCenter(@Value("${regCenter.serverList}") final String serverList, @Value("${regCenter.namespace}") final String namespace,
-                                             @Value("${regCenter.baseSleepTimeMilliseconds}") final Integer baseSleepTimeMilliseconds, @Value("${regCenter.maxSleepTimeMilliseconds}") final Integer maxSleepTimeMilliseconds,
-                                             @Value("${regCenter.maxRetries}") final Integer maxRetries
+    public ZookeeperRegistryCenter regCenter(@Value("${elaticjob.zookeeper.server-lists}") final String serverList, @Value("${elaticjob.zookeeper.namespace}") final String namespace,
+                                             @Value("${elaticjob.zookeeper.baseSleepTimeMilliseconds:1000}") final Integer baseSleepTimeMilliseconds, @Value("${elaticjob.zookeeper.maxSleepTimeMilliseconds:3000}") final Integer maxSleepTimeMilliseconds,
+                                             @Value("${elaticjob.zookeeper.maxRetries:3}") final Integer maxRetries
     ) {
         ZookeeperConfiguration zookeeperConfiguration = new ZookeeperConfiguration(serverList, namespace);
         if (baseSleepTimeMilliseconds != null) zookeeperConfiguration.setBaseSleepTimeMilliseconds(baseSleepTimeMilliseconds);
