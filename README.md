@@ -24,11 +24,11 @@ spring boot starter for Elastic-Job
     
         namespace: elastic-job-lite-demo
     
-        baseSleepTimeMilliseconds:
+        baseSleepTimeMilliseconds:      ##等待重试的间隔时间的初始值(毫秒)
     
-        maxSleepTimeMilliseconds:
+        maxSleepTimeMilliseconds:       ##等待重试的间隔时间的最大值(毫秒)
     
-        maxRetries:
+        maxRetries:           ##最大重试次数
   
 3、cread job classes
 
