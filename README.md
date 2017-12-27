@@ -2,19 +2,31 @@
 spring boot starter for Elastic-Job
 
 1、add pom
+
         <dependency>
+        
             <groupId>cn.itshaw</groupId>
+            
             <artifactId>spring-boot-starter-elastic-job-lite</artifactId>
+            
             <version>${spring-boot-starter-elastic-job-lite.version}</version>
+            
         </dependency>
   
 2、regsiter center config
+
 elaticjob:
+
   zookeeper:
+  
     server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+    
     namespace: elastic-job-lite-demo
+    
     baseSleepTimeMilliseconds:
+    
     maxSleepTimeMilliseconds:
+    
     maxRetries:
   
 3、cread job classes
@@ -26,13 +38,16 @@ public class MySimpleJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext context) {
+    
         switch (context.getShardingItem()) {
             case 0:
                 // do something by sharding item 0
                 break;
+                
             case 1:
                 // do something by sharding item 1
                 break;
+                
             case 2:
                 // do something by sharding item 2
                 break;
