@@ -33,6 +33,7 @@ spring boot starter for Elastic-Job
 3、cread job classes
 
 SimpleJob Demo：
+
         @ElasticSimpleJob("0 * * * * ?")
         @Component
         public class MySimpleJob implements SimpleJob {
