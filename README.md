@@ -33,8 +33,7 @@ spring boot starter for Elastic-Job
 3、cread job classes
 
 SimpleJob Demo：
-
-        //shardingTotalCount：Piecewise number             
+       
         @ElasticSimpleJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MySimpleJob implements SimpleJob {
