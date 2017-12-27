@@ -15,63 +15,65 @@ spring boot starter for Elastic-Job
   
 2、regsiter center config
 
-elaticjob:
 
-  zookeeper:
+    elaticjob:
+
+      zookeeper:
   
-    server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+        server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
     
-    namespace: elastic-job-lite-demo
+        namespace: elastic-job-lite-demo
     
-    baseSleepTimeMilliseconds:
+        baseSleepTimeMilliseconds:
     
-    maxSleepTimeMilliseconds:
+        maxSleepTimeMilliseconds:
     
-    maxRetries:
+        maxRetries:
   
 3、cread job classes
 
-SimpleJob Demo：
-@ElasticSimpleJob("0 * * * * ?")
-@Component
-public class MySimpleJob implements SimpleJob {
+        SimpleJob Demo：
+        @ElasticSimpleJob("0 * * * * ?")
+        @Component
+        public class MySimpleJob implements SimpleJob {
 
-    @Override
-    public void execute(ShardingContext context) {
-    
-        switch (context.getShardingItem()) {
-            case 0:
-                // do something by sharding item 0
-                break;
-                
-            case 1:
-                // do something by sharding item 1
-                break;
-                
-            case 2:
-                // do something by sharding item 2
-                break;
-            // case n: ...
+            @Override
+            public void execute(ShardingContext context) {
+
+                switch (context.getShardingItem()) {
+                    case 0:
+                        // do something by sharding item 0
+                        break;
+
+                    case 1:
+                        // do something by sharding item 1
+                        break;
+
+                    case 2:
+                        // do something by sharding item 2
+                        break;
+                    // case n: ...
+                }
+            }
         }
-    }
-}
 
 DataflowJob Demo：
-@ElasticDataflowJob("0 * * * * ?")
-@Component
-public class MyDataflowJob implements DataflowJob {
 
-    @Override
-    public List fetchData(ShardingContext shardingContext) {
-        System.out.println(String.format("Item: %s | Time: %s | Thread: %s | %s",
-                shardingContext.getShardingItem(), new SimpleDateFormat("HH:mm:ss").format(new Date()), Thread.currentThread().getId(), "DATAFLOW FETCH"));
-        return null;
-    }
+        @ElasticDataflowJob("0 * * * * ?")
+        @Component
+        public class MyDataflowJob implements DataflowJob {
 
-    @Override
-    public void processData(ShardingContext shardingContext, List data) {
-        System.out.println(String.format("Item: %s | Time: %s | Thread: %s | %s",
-                shardingContext.getShardingItem(), new SimpleDateFormat("HH:mm:ss").format(new Date()), Thread.currentThread().getId(), "DATAFLOW PROCESS"));
+            @Override
+            public List fetchData(ShardingContext shardingContext) {
+                System.out.println(String.format("Item: %s | Time: %s | Thread: %s | %s",
+                        shardingContext.getShardingItem(), new SimpleDateFormat("HH:mm:ss").format(new Date()), Thread.currentThread().getId(), "DATAFLOW FETCH"));
+                return null;
+            }
 
-    }
-}
+            @Override
+            public void processData(ShardingContext shardingContext, List data) {
+                System.out.println(String.format("Item: %s | Time: %s | Thread: %s | %s",
+                        shardingContext.getShardingItem(), new SimpleDateFormat("HH:mm:ss").format(new Date()), Thread.currentThread().getId(), "DATAFLOW PROCESS"));
+
+            }
+        }
