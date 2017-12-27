@@ -24,17 +24,18 @@ spring boot starter for Elastic-Job
     
         namespace: elastic-job-lite-demo
     
-        baseSleepTimeMilliseconds:      ##等待重试的间隔时间的初始值(毫秒)
+        baseSleepTimeMilliseconds:      ##The initial value of the interval of time waiting for retrial (milliseconds)
     
-        maxSleepTimeMilliseconds:       ##等待重试的间隔时间的最大值(毫秒)
+        maxSleepTimeMilliseconds:       ##The maximum of the interval of time waiting for retrial (milliseconds)
     
-        maxRetries:           ##最大重试次数
+        maxRetries:                     ##max retries
   
 3、cread job classes
 
 SimpleJob Demo：
 
-        @ElasticSimpleJob("0 * * * * ?")
+        //shardingTotalCount：Piecewise number             
+        @ElasticSimpleJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MySimpleJob implements SimpleJob {
 
@@ -60,7 +61,7 @@ SimpleJob Demo：
 
 DataflowJob Demo：
 
-        @ElasticDataflowJob("0 * * * * ?")
+        @ElasticDataflowJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MyDataflowJob implements DataflowJob {
 
