@@ -1,17 +1,7 @@
-###regsiter center config
 elaticjob:
   zookeeper:
-    server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+    server-lists: ip:port
     namespace: elastic-job-lite-demo
     baseSleepTimeMilliseconds:
     maxSleepTimeMilliseconds:
     maxRetries:
-
-###job storage config
-spring:
-  datasource:
-    url: jdbc:h2:mem:job_event_storage
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
