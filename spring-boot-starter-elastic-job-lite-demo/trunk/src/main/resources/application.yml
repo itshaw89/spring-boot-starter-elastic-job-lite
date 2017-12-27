@@ -1,0 +1,11 @@
+server:
+  port: 8089
+  context-path: /demo
+
+elaticjob:
+  zookeeper:
+    server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+    namespace: elastic-job-lite-demo
+    baseSleepTimeMilliseconds:
+    maxSleepTimeMilliseconds:
+    maxRetries:
