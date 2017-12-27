@@ -34,8 +34,7 @@ spring boot starter for Elastic-Job
 
 SimpleJob Demo：
        
-       
-        @ElasticSimpleJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
+        @ElasticDataflowJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MySimpleJob implements SimpleJob {
 
