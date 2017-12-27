@@ -27,6 +27,7 @@
 		<spring-boot.version>1.5.9.RELEASE</spring-boot.version>
 		<spring-boot-starter-elastic-job-lite.version>1.0.0</spring-boot-starter-elastic-job-lite.version>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<spring-boot-maven-plugin.version>1.5.8.RELEASE</spring-boot-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -65,6 +66,18 @@
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
