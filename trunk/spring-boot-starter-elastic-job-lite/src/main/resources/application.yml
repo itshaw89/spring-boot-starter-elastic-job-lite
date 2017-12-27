@@ -15,13 +15,3 @@ spring:
     username: sa
     password:
 
-###job config
-simpleJob:
-  cron: 0/5 * * * * ?
-  shardingTotalCount: 3
-  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
-  
-dataflowJob:
-  cron: 0/5 * * * * ?
-  shardingTotalCount: 3
-  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou

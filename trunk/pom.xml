@@ -7,7 +7,7 @@
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
-	<name>spring-boot-starter-elastic-job-lite</name>
+	<name>spring-boot-starter-elastic-job-lite-parent</name>
 	<description>spring boot starter for Elastic-Job(https://github.com/elasticjob/elastic-job)</description>
 	<url>https://github.com/ShawHero/spring-boot-starter-elastic-job-lite</url>
 
