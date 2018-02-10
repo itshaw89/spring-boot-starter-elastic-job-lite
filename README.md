@@ -20,7 +20,7 @@ spring boot starter for Elastic-Job
 
       zookeeper:
   
-        server-lists: test-zookeeper01.biostime.it:2181,test-zookeeper02.biostime.it:2181,test-zookeeper03.biostime.it:2181
+        server-lists: ip1:2181,ip2:2181,ip3:2181
     
         namespace: elastic-job-lite-demo
     
