@@ -29,12 +29,19 @@ spring boot starter for Elastic-Job
         maxSleepTimeMilliseconds:       ##The maximum of the interval of time waiting for retrial (milliseconds)
     
         maxRetries:                     ##max retries
+        
+        sessionTimeoutMilliseconds:     ##Session timeout time  (milliseconds)
+        
+        connectionTimeoutMilliseconds:  ##Connection timeout time  (milliseconds)
+        
+        digest:                         ##Permission token to connect to Zookeeper. Default is not required to verify permission
+        
   
 3、cread job classes
 
 SimpleJob Demo：
        
-        @ElasticDataflowJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
+        @ElasticJobLite(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MySimpleJob implements SimpleJob {
 
@@ -60,7 +67,7 @@ SimpleJob Demo：
 
 DataflowJob Demo：
 
-        @ElasticDataflowJob(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
+        @ElasticJobLite(cron="0 * * * * ?",shardingTotalCount = 3,shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou")
         @Component
         public class MyDataflowJob implements DataflowJob {
 
