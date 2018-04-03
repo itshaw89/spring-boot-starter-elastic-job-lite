@@ -36,6 +36,18 @@ spring boot starter for Elastic-Job
         
         digest:                         ##Permission token to connect to Zookeeper. Default is not required to verify permission
         
+      event:
+      
+        rdb:
+        
+          url: jdbc:mysql://ip:port/db_name
+          
+          username: username
+          
+          password: password
+          
+          driver-class-name: com.mysql.jdbc.Driver
+        
   
 3、cread job classes
 
